@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		*{margin: 0px;padding: 0px}
+
+
+		.list li{float: left;}
+		div:after, ul:after, li:after, dl:after, .clearfix:after {
+			clear: both;
+			content: " ";
+			display: block;
+			font-size: 0;
+			height: 0;
+			visibility: hidden;
+		}
+		div ul li{margin: 20px}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<ul class="list">
+			<li>tab1</li>
+			<li>tab2</li>
+		</ul>
+		<ul class="content">
+			<li>content1</li>
+			<li>content2</li>
+		</ul>
+	</div>
+	<script>
+		var list = document.querySelector('.list');
+		var content = document.querySelector('.content');
+		var tabLi = list.querySelectorAll("li");
+		var contentLi = content.querySelectorAll("li");
+
+		for(var i=0; i<tabLi.length; i++) {
+			tabLi[i].dataset.index = i //为标签添加对应的索引值
+			tabLi[i].onclick = function() {
+				for(var i=0; i<tabLi.length; i++) {
+					tabLi[i].className = '';
+					contentLi[i].style.display = 'none';	
+				}
+				this.className = "active";
+                contentLi[this.dataset.index].style.display = "block";
+			}
+
+		}
+	</script>
+</body>
+</html>
