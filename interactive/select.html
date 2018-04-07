@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{margin: 0px;padding: 0px}
+        div:after, ul:after, li:after, dl:after, .clearfix:after {
+			clear: both;
+			content: " ";
+			display: block;
+			font-size: 0;
+			height: 0;
+			visibility: hidden;
+		}
+        .list{float: left;}
+        .active{color: red}
+    </style>
+</head>
+<body>
+    <h1>选中效果</h1>
+    <div class="wrap">
+        <ul class="list">
+            <li>选项1</li>
+            <li>选项2</li>
+            <li>选项3</li>
+            <li>选项4</li>
+            <li>选项5</li>
+        </ul>
+    </div>
+    <script>
+        var list = document.querySelector('.list');
+        var listLg = list.querySelectorAll('li');
+        listLg.forEach(function(value) {
+            value.onclick = function() {
+                listLg.forEach(function(value) {
+                    value.className = '';
+                })
+                this.className = 'active';
+            }
+        })
+    </script>
+</body>
+</html>
