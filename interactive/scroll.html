@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{margin:0px;padding:0px;}
+        .wrap{width:500px;overflow: auto;/* white-space: nowrap; */margin: auto;height: 120px;}
+        ul,li{/* display: inline; */font-size:30px }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <ul class="list">
+            <li>1111111111</li>
+            <li>2222222222</li>
+            <li>3333333333</li>
+        </ul>
+    </div>
+    <script>
+        var wrap = document.querySelector('.wrap');
+        var list = document.querySelector('.list');
+        var cloneList = document.querySelector('.list').cloneNode(true);
+        wrap.appendChild(cloneList);
+        /* function sLeft() {
+            if(wrap.scrollLeft<=list.offsetWidth) {
+                wrap.scrollLeft++;
+            } else {
+                wrap.scrollLeft = 0;
+            }
+        } */
+        function sTop() {
+            if(wrap.scrollTop>=list.offsetHeight) {
+               wrap.scrollTop = 0;
+            } else {
+                wrap.scrollTop++
+            }
+        }
+        var timer = setInterval(sTop, 20)
+        wrap.onmouseout = function() {
+            timer = setInterval(sTop, 20)
+        }
+        wrap.onmouseover = function() {
+            clearInterval(timer)
+        }
+    </script>      
+</body>
+</html>
