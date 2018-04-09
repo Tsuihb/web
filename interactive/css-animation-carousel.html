@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>CSS轮播图</title>
+    <style>
+        .imglist img{
+        width:600px;
+        height:350px;
+        position:absolute;
+        animation: show 16s infinite;
+        }
+        @keyframes show{
+        0%{
+            opacity:0;
+            z-index:2;
+        }
+        6%,25%{
+            opacity:1;
+            z-index: 1;
+        }
+        31%,100%{
+            opacity:0;
+            z-index:0;
+        }
+        }
+        #img1{
+            animation-delay: 0s;
+        }
+        #img2{
+            animation-delay: 4s;
+        }
+        #img3{
+            animation-delay: 8s;
+        }
+        #img4{
+            animation-delay: 12s;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS轮播图</h1>
+    <div class="box">
+        <div class="imglist">
+            <img id="img1" src="https://images2015.cnblogs.com/blog/1044137/201702/1044137-20170219160953519-1844848679.png" alt="">
+            <img id="img2"  src="http://c.hiphotos.baidu.com/image/h%3D300/sign=37c0f1fc3501213fd03348dc64e636f8/fc1f4134970a304e9fcf65dfddc8a786c9175c22.jpg" alt="">
+            <img id="img3"  src="http://c.hiphotos.baidu.com/image/h%3D300/sign=565c7da6fc1f3a2945c8d3cea925bce3/fd039245d688d43f5d9c4d8a711ed21b0ef43b95.jpg" alt="">
+            <img id="img4"  src="http://a.hiphotos.baidu.com/image/h%3D300/sign=b89c2ef84a34970a5873162fa5cbd1c0/d043ad4bd11373f0924d8948af0f4bfbfaed04f2.jpg" alt="">
+        </div>
+    </div>
+</body>
+</html>
